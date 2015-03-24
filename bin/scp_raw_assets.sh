@@ -25,9 +25,6 @@ function copy {
 
 while getopts "f" opt; do
 	case $opt in
-		s)
-			sub_dir=$OPTARG
-			;;
 		f)
 			from_server=true
 			;;
