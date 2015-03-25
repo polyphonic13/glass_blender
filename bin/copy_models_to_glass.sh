@@ -9,18 +9,18 @@
 #
 set -e
 
-unity_dir="../glass/Assets/models/"
+unity_dir="../glass/Assets/models"
 local_dir="models"
 sub_dir=""
-from_unity=false
+from_unity=0
 
 function copy {
-	if([ "$from_unity" = true ]); then
-		echo "copying from ${unity_dir}/${sub_dir} to ${local_dir}/${sub_dir}"
-		cp -r "${unity_dir}/${sub_dir}" "${local_dir}/${sub_dir}"
+	if([ "$from_unity" = 1 ]); then
+		echo "copying from ${unity_dir}/${sub_dir} to ${local_dir}/"
+		cp -r "${unity_dir}/${sub_dir}" "${local_dir}/"
 	else
-		echo "copying from to ${unity_dir}/${sub_dir} to ${local_dir}/${sub_dir}"
-		cp -r "${local_dir}/${sub_dir}" " ${unity_dir}/${sub_dir}"
+		echo "copying from ${local_dir}/${sub_dir} to ${unity_dir}/"
+		cp -r "${local_dir}/${sub_dir}" " ${unity_dir}/"
 	fi
 }
 
@@ -30,7 +30,7 @@ while getopts "s:f" opt; do
 			sub_dir=$OPTARG
 			;;
 		f)
-			from_unity=true
+			from_unity=1
 			;;
 	    \?)
 	    	printf "\nERROR: INVALID OPTION: -$OPTARG\n" >&2

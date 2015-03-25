@@ -11,10 +11,10 @@ set -e
 server="phds@franck.dreamhost.com"
 path="/home/phds/raw_assets/glass/"
 local_dir="raw_assets/"
-from_server=false
+from_server=0
 
 function copy {
-	if([ "$from_server" = true ]); then
+	if([ "$from_server" = 1 ]); then
 		echo "copying from ${server}:${path} to ${local_dir}"
 		scp -r "${server}:${path}" "${local_dir}"
 	else
@@ -26,7 +26,7 @@ function copy {
 while getopts "f" opt; do
 	case $opt in
 		f)
-			from_server=true
+			from_server=1
 			;;
 	    \?)
 	    	printf "\nERROR: INVALID OPTION: -$OPTARG\n" >&2
