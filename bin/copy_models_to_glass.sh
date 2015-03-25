@@ -10,7 +10,7 @@
 set -e
 
 unity_dir="../glass/Assets/models/"
-local_dir="models/"
+local_dir="models"
 sub_dir=""
 from_unity=false
 
