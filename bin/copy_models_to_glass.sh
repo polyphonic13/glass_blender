@@ -20,7 +20,7 @@ function copy {
 		cp -r "${unity_dir}/${sub_dir}" "${local_dir}/"
 	else
 		echo "copying from ${local_dir}/${sub_dir} to ${unity_dir}/"
-		cp -r "${local_dir}/${sub_dir}" " ${unity_dir}/"
+		cp -r "${local_dir}/${sub_dir}" "${unity_dir}/"
 	fi
 }
 
