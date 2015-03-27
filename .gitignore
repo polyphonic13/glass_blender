@@ -1,2 +1,4 @@
 raw_assets/
 *.meta
+*.DS_Store
+*/*.DS_Store
