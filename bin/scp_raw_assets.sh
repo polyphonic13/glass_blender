@@ -19,7 +19,7 @@ function copy {
 		scp -r "${server}:${path}" "${local_dir}"
 	else
 		echo "copying from ${local_dir} to ${server}:${path}"
-		scp -r "${local_dir}" "${server}:${path}"
+		scp -r "${local_dir}." "${server}:${path}"
 	fi
 }
 
