@@ -10,16 +10,17 @@ set -e
 
 server="phds@franck.dreamhost.com"
 path="/home/phds/raw_assets/glass/"
-local_dir="raw_assets/"
+from_local_dir="raw_assets/"
+to_local_dir="raw_assets/glass/"
 from_server=0
 
 function copy {
 	if([ "$from_server" = 1 ]); then
-		echo "copying from ${server}:${path} to ${local_dir}"
-		scp -r "${server}:${path}" "${local_dir}"
+		echo "copying from ${server}:${path} to ${to_local_dir}"
+		scp -r "${server}:${path}." "${to_local_dir}"
 	else
-		echo "copying from ${local_dir} to ${server}:${path}"
-		scp -r "${local_dir}." "${server}:${path}"
+		echo "copying from ${from_local_dir} to ${server}:${path}"
+		scp -r "${from_local_dir}." "${server}:${path}"
 	fi
 }
 
