@@ -3,3 +3,5 @@ raw_assets/
 *.DS_Store
 */*.DS_Store
 .DS_Store*
+*.blend1
+*.blend2
